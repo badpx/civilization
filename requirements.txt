@@ -1,6 +1,6 @@
 # 文明纪元 - 依赖
 fastapi>=0.136.0
-uvicorn>=0.30.0
+uvicorn[standard]>=0.30.0
 aiosqlite>=0.20.0
 openai>=1.40.0
 pydantic>=2.8.0
