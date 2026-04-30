@@ -81,7 +81,10 @@ app = FastAPI(title="Civilization Simulation", lifespan=lifespan)
 
 # --- Static files ---
 
-app.mount("/static", StaticFiles(directory="/root/civilization/frontend"), name="static")
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "frontend")), name="static")
 
 
 # --- Routes ---
@@ -90,7 +93,7 @@ app.mount("/static", StaticFiles(directory="/root/civilization/frontend"), name=
 async def serve_index():
     """Serve the frontend index.html."""
     try:
-        return FileResponse("/root/civilization/frontend/index.html")
+        return FileResponse(os.path.join(BASE_DIR, "frontend", "index.html"))
     except FileNotFoundError:
         return {"message": "Frontend not built yet. See /api/ for API endpoints."}
 

@@ -6,7 +6,9 @@ from typing import Optional
 from backend.models import GameState, Civilization, City, Resources, GameEvent
 from backend.config import MAP_WIDTH, MAP_HEIGHT
 
-DB_PATH = "/root/civilization/game_state.db"
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DB_PATH = os.path.join(BASE_DIR, "game_state.db")
 
 
 def _serialize_terrain_map(map_grid):

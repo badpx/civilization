@@ -11,7 +11,9 @@ from backend.config import OPENROUTER_API_KEY, OPENROUTER_BASE_URL, OPENROUTER_M
 logger = logging.getLogger(__name__)
 
 # Prompt file paths
-PROMPT_DIR = "/root/civilization/backend/prompts"
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PROMPT_DIR = os.path.join(BASE_DIR, "prompts")
 
 # Fallback actions if API fails
 FALLBACK_ACTIONS = [
